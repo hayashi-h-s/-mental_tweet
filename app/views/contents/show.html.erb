@@ -2,6 +2,11 @@
   <tbody>
     <tr>
       <td><%= @content.title %></td>
+    </tr>
+    <tr>
+      <td><%= video_tag @content.video_url.to_s,loop: false, controls: true, width: 550, id: "mv" %></td>
+    </tr>
+    <tr>
       <td><%= link_to "削除",@content,method: :delete%></td>
     </tr>
   </tbody>

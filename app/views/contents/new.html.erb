@@ -4,6 +4,8 @@
   <div class="form-group">
     <%= f.label :name %>
     <%= f.text_field :title,class: 'form-control'%>
+    <%= f.label :video %>
+    <%= f.file_field :video %>
   </div>
   <%= f.submit "コンテンツ投稿",class:"btn btn-primary"%>
 <% end %>
