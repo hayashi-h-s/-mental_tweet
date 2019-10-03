@@ -6,7 +6,7 @@
     <tbody>
       <% @contents.each do |content| %>
         <tr>
-          <td><%= content.title %></td>
+          <td><%= link_to content.title, content %></td>
         </tr>
       <% end %>
     </tbody>
