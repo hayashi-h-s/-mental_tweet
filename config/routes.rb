@@ -1,9 +1,7 @@
 Rails.application.routes.draw do
 
   namespace :admin do
-    get 'users/new'
-    get 'users/edit'
-    get 'users/index'
+    resources :users
   end
   root to: 'home#top'
   resources :contents
