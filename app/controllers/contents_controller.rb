@@ -1,7 +1,7 @@
 class ContentsController < ApplicationController
 
   def index
-    @contents = Content.all
+    @contents = Content.all.order(created_at: :desc)
   end
 
   def new
@@ -9,7 +9,7 @@ class ContentsController < ApplicationController
   end
 
   def create
-    @content = Content.new(content_params)
+    @content =  Content.new(content_params.merge(user_id: current_user.id))
     @content.save!
     redirect_to contents_path,notice: "コンテンツ『#{@content.title}』を投稿しました。"
   end
