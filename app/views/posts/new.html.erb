@@ -1,9 +1,9 @@
 <h1>コンテンツ新規登録</h1>
 
-<%= form_with model:@content,local:true do |f| %>
+<%= form_with model:@post,local:true do |f| %>
   <div class="form-group">
     <%= f.label :name %>
-    <%= f.text_field :title,class: 'form-control'%>
+    <%= f.text_field :post,class: 'form-control'%>
     <%= f.label :video %>
     <%= f.file_field :video %>
   </div>
