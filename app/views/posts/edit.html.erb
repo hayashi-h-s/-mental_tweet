@@ -1,2 +1,11 @@
-<h1>Contents#edit</h1>
-<p>Find me in app/views/contents/edit.html.erb</p>
+<h1>編集</h1>
+
+<%= form_with model:@post,local:true do |f| %>
+  <div class="form-group">
+    <%= f.label :name %>
+    <%= f.text_field :content,class: 'form-control'%>
+    <%= f.label :video %>
+    <%= f.file_field :video %>
+  </div>
+  <%= f.submit "編集",class:"btn btn-primary"%>
+<% end %>

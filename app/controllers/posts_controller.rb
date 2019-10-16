@@ -5,31 +5,40 @@ class PostsController < ApplicationController
   end
 
   def new
-    @posts = Post.new
+    @post = Post.new
   end
 
   def create
-    @posts =  Post.new(Post_params.merge(user_id: current_user.id))
-    @posts.save!
-    redirect_to Posts_path,notice: "コンテンツ『#{@Post.content}』を投稿しました。"
+    @post =  Post.new(post_params.merge(user_id: current_user.id))
+    if @post.save
+      redirect_to posts_path,notice: "コンテンツ『#{@post.content}』を投稿しました。"
+    else   
+      render :new
+    end
+  end 
+  
+  def update
+    @post = Post.find(params[:id])
+
   end
 
   def destroy
-    @posts = Content.find(params[:id])
-    @posts.destroy!
-    redirect_to Posts_path,notice: "コンテンツ『#{@Post.content}』を削除しました。"
+    @post = Post.find(params[:id])
+    @post.destroy!
+    redirect_to posts_path,notice: "コンテンツ『#{@post.content}』を削除しました。"
   end
 
   def edit
+    @post = Post.find(params[:id])
   end
 
   def show
-    @posts = Post.find(params[:id])
+    @post = Post.find(params[:id])
   end
 
   private
 
-  def content_params
-    params.require(:post).permit(:content,:video)
+  def post_params
+    params.require(:post).permit(:content, :video)
   end
 end

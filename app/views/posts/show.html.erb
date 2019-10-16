@@ -1,6 +1,9 @@
 <table class="table table-hover">
   <tbody>
     <tr>
+      <td><%= @post.user.name %></td>
+    </tr>  
+    <tr>
       <td><%= @post.content %></td>
     </tr>
     <tr>
@@ -9,5 +12,8 @@
     <tr>
       <td><%= link_to "削除",@post,method: :delete%></td>
     </tr>
+    <tr>
+      <td><%= link_to "編集",edit_post_path%></td>
+    </tr>    
   </tbody>
 </table>
