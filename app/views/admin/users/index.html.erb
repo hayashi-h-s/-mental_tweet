@@ -2,9 +2,16 @@
 
 <div class="mb-3">
   <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>ユーザーアイコン</th>
+        <th>ユーザー名</th>
+      </tr>
+    </thead>  
     <tbody>
       <% @users.each do |user| %>
         <tr>
+          <td><%= image_tag user.image,width: 50 if user.image.attached? %></td>
           <td><%= link_to user.name, [:admin,user] %></td>
         </tr>
       <% end %>

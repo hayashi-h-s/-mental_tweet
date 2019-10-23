@@ -1,6 +1,10 @@
 class SessionController < ApplicationController
   skip_before_action :login_required
 
+  def new
+    @user = User.new
+  end
+
   def create
     @user = User.find_by(email: session_params[:email])
 
@@ -9,6 +13,7 @@ class SessionController < ApplicationController
       redirect_to posts_path, notice: "ログインしました。"
     else
       render :new
+      flash[:notice] = 'メールアドレスまたはパスワードが間違っています'
     end
   end
 

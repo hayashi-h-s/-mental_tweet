@@ -1,12 +1,14 @@
 <h1>編集</h1>
 
-
 <%= form_with model:@post,local:true do |f| %>
   <div class="form-group">
     <%= f.label :投稿内容 %>
     <%= f.text_area :content,class: 'form-control'%>
-    <%= f.label :video %>
+    <%= f.label :画像の変更 %>
+    <%= f.file_field :image %>     
+    <%= f.label :videoの変更 %>
     <%= f.file_field :video %>
   </div>
   <%= f.submit "投稿",class:"btn btn-primary"%>
 <% end %>
+<%= link_to "削除",@post,method: :delete, class: "btn btn-danger p-3"%> 
