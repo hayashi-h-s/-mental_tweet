@@ -1,3 +1,6 @@
+<div class="container">
+
+</div>
 <h1>ユーザー編集</h1>
 
 <% if @user.errors.present? %>
@@ -14,11 +17,11 @@
     <%= f.text_field :name, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :email, "メールアドレス"%>
-    <%= f.text_field :email, class: 'form-control' %>
+    <%= f.label :details, "自己紹介"%>
+    <%= f.text_area :details, rows:6, class: 'form-control' %>
   </div>
   <div class="form-group">
-    <%= f.label :画像の変更 %>
+    <%= f.label :アイコンの変更 %>
     <%= f.file_field :image %>    
   <%= f.submit '編集する', class: 'btn btn-primary' %>
   <%= link_to "削除",[:admin,@user],method: :delete,class:"btn btn-danger"%>

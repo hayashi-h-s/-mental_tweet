@@ -1,21 +1,18 @@
-<h1>ツイート一覧</h1>
-<table class="table table-hover">
-  <thead>
-    <tr>
-      <th>ユーザーアイコン</th>
-      <th>ユーザー名</th>
-      <th>投稿内容</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @posts.each do |post| %>
-      <tr>
-        <td><%= image_tag post.user.image,width: 50 if post.user.image.attached? %></td>
-        <td><%= link_to post.user.name,admin_user_path(post.user) %></td>
-        <td><%= link_to post.content, post %></td>
-        <td><%= link_to "編集",edit_post_path(post)%></td>
-        <td><%= link_to "削除",post,method: :delete%></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="container">
+  <h1>ツイート一覧</h1>
+  <div>
+      <% @posts.each do |post| %>
+        <div class="card" style="width: 50rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= image_tag post.user.image,width: 50 if post.user.image.attached? %></h5>
+            <h6 class="card-subtitle mb-2 text-muted"><%= link_to post.user.name,admin_user_path(post.user) %></h6>
+            <p class="card-text"><%= link_to post.content, post %></p>
+            <%= link_to "編集",edit_post_path(post)%>
+            <%= link_to "削除",post,method: :delete%>
+          </div>
+        </div>        
+      <% end %>
+  </div>
+</div>
+
+

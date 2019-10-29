@@ -12,7 +12,8 @@ class Admin::UsersController < ApplicationController
   def create
     @user = User.new(users_params)
     if @user.save
-      redirect_to admin_users_path
+      session[:user_id] = @user.id
+      redirect_to posts_path, notice: "新規ユーザー『#{@user.name}』を作成しました。"
     else
       render :new
     end
@@ -46,5 +47,4 @@ class Admin::UsersController < ApplicationController
   def users_params
     params.require(:user).permit(:name,:email,:details,:admin,:password,:password_confirmation, :image)
   end
-
 end

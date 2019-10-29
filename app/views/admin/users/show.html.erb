@@ -1,31 +1,37 @@
-<h1><%= @user.name %>の詳細</h1>
-<%= link_to "編集",edit_admin_user_path,class:"btn btn-primary"%>
-<table class="table table-hover">
-  <tbody>
-    <tr>
-      <th>アイコン画像</th>
-      <td><%= image_tag @user.image,width: 50 if @user.image.attached?%></td>
-    </tr>
-    <tr>
-      <th>メールアドレス</th>
-      <td><%= @user.email %></td>
-    </tr>
-  </tbody>
-</table>
+<div class="container">
+  <h1><%= @user.name %></h1>
 
-<h2><%= @user.name %>の投稿一覧</h2>
-<div class="mb-3">
-  <table class="table table-hover">
-    <tbody>
-      <% @user.posts.each do |post| %>
-        <tr>
-          <td><%= link_to post.content, post %></td>
-        </tr>
-      <% end %>
-    </tbody>
-  </table>
+  <div class="card" style="width: 50rem;">
+  <div class="card-body">
+    <h5 class="card-title">画像<%= image_tag @user.image,width: 50 if @user.image.attached?%></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @user.name %></h6>
+    <p class="card-text"><%= @user.details %></p>
+    <%= link_to "プロフィール編集",edit_admin_user_path%>
+  </div>
 </div>
 
+  <h2>ツイート</h2>
+  <div class="mb-3">
+    <table class="table table-hover">
+      <tbody>
+        <% @user.posts.each do |post| %>
+          <tr>
+            <td><%= link_to post.content, post %></td>
+          </tr>
+<div class="card" style="width: 50rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= image_tag @user.image,width: 50 if @user.image.attached?%></h5>
+    <h6 class="card-subtitle mb-2 text-muted"><%= @user.name %></h6>
+    <p class="card-text"><%= link_to post.content, post %></p>
+    <%= link_to "編集",edit_post_path(post)%>
+    <%= link_to "削除",post,method: :delete%>
+  </div>
+</div>          
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
 
 
 
