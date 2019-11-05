@@ -4,7 +4,7 @@
       <% @posts.each do |post| %>
         <div class="card" style="width: 50rem;">
           <div class="card-body">
-            <h5 class="card-title"><%= image_tag post.user.image,width: 50 if post.user.image.attached? %></h5>
+            <%= image_tag post.user.image,width: 50 if post.user.image.attached? %>
             <h6 class="card-subtitle mb-2 text-muted"><%= link_to post.user.name,admin_user_path(post.user) %></h6>
             <p class="card-text"><%= link_to post.content, post %></p>
             <%= link_to "編集",edit_post_path(post)%>
@@ -14,5 +14,3 @@
       <% end %>
   </div>
 </div>
-
-

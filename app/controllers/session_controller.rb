@@ -1,5 +1,6 @@
 class SessionController < ApplicationController
-  skip_before_action :login_required
+  # skip_before_action :login_required
+  before_action :forbid_login_user
 
   def new
     @user = User.new

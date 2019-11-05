@@ -15,12 +15,11 @@ gem 'sass-rails', '~> 5.0'
 gem 'uglifier', '>= 1.3.0'
 # See https://github.com/rails/execjs#readme for more supported runtimes
 # gem 'mini_racer', platforms: :ruby
-gem 'bootstrap-sass', '3.3.7'
+gem 'bootstrap', '~> 4.3.1'
 
+gem 'jquery-rails'
 gem 'carrierwave'
-
 gem 'bcrypt', '~> 3.1.7'
-
 gem 'rails-i18n'
 
 # Use CoffeeScript for .coffee assets and views
@@ -59,10 +58,17 @@ end
 
 group :test do
   # Adds support for Capybara system testing and selenium driver
-  gem 'capybara', '>= 2.15'
   gem 'selenium-webdriver'
   # Easy installation and use of chromedriver to run system tests with Chrome
   gem 'chromedriver-helper'
+  gem 'rspec-rails'
+  gem 'spring-commands-rspec'
+  gem 'factory_bot_rails'
+  gem 'faker'
+  gem 'capybara'
+  gem 'database_cleaner'
+  gem 'launchy'
+  gem "selenium-webdriver"  
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
