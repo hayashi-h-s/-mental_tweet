@@ -1,7 +1,6 @@
 class ApplicationController < ActionController::Base
   helper_method :current_user
-  # before_action :login_required
-
+  
   private
 
   def current_user
@@ -9,8 +8,10 @@ class ApplicationController < ActionController::Base
   end
 
   def login_required
-    flash[:notice] = "ログインしてください"
-    redirect_to login_path unless current_user
+    if current_user == nil
+      redirect_to login_path  
+      flash[:notice] = "ログインしてください"  
+    end
   end
 
   def forbid_login_user

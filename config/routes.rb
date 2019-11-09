@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
 
+  
+
   root to: 'home#top'
 
   get '/login', to: 'session#new'
@@ -11,5 +13,7 @@ Rails.application.routes.draw do
   end
 
   resources :posts
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  post "likes/:post_id/create" => "likes#create"
+  post "likes/:post_id/destroy" => "likes#destroy"
 end

@@ -1,4 +1,5 @@
 class PostsController < ApplicationController
+  before_action :login_required
 
   def index
     @posts = Post.all.order(created_at: :desc)
@@ -38,6 +39,8 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @user = @post.user_id
+    @likes_count = Like.where(post_id: @post.id).count
   end
 
   private

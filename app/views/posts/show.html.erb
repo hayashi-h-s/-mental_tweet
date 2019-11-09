@@ -1,5 +1,6 @@
   
 <div class="container">
+
   <div class="card" style="width: 50rem;">
     <div class="card-body">
       <h4><%= link_to @post.user.name, admin_user_path %></h4>
@@ -8,6 +9,18 @@
       <h5 class="card-title"><%= image_tag @post.image,width: 400 if @post.image.attached?%></h5>
       <%= link_to "削除",@post,method: :delete%>
       <%= link_to "編集",edit_post_path%>
+      <% if Like.find_by(user_id: current_user.id, post_id: @post.id) %>
+        <%= link_to("/likes/#{@post.id}/destroy", {method: "post"}) do %>
+          <span class="fa fa-heart"></span>
+        <% end %>
+      <% else %>
+        <!-- 以下の1行をcreateアクションへのリンクに書き換えてください -->
+        <%= link_to("/likes/#{@post.id}/create",{method: "post"}) do %>
+          <span class="fa fa-heart-o"></span>
+        <% end %>
+      <% end %>
+      <%= @likes_count %>         
     </div>
   </div>
 </div>
+

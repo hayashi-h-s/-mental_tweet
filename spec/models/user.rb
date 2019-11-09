@@ -36,7 +36,6 @@ RSpec.describe User, type: :model do
     end        
   end
 
-
     #パスワードが6桁の時と５桁の時のテストを行うことで、どの位置からバリデーションが用意されているのか可視化している
     context "パスワードが６桁の時" do
       it "正しい" do
@@ -51,5 +50,4 @@ RSpec.describe User, type: :model do
         expect(@user).to be_invalid
       end
     end
-
 end

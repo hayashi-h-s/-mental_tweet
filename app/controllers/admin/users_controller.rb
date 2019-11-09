@@ -1,7 +1,5 @@
 class Admin::UsersController < ApplicationController
-  # skip_before_action :login_required, only: [:new, :create]
-  # before_action :forbid_login_user
-  # , :login_form, :login]
+  before_action :login_required, {except:[:new, :create]}
 
   def index
     @users = User.all
