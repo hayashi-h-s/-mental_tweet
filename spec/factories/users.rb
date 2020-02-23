@@ -4,5 +4,5 @@ FactoryBot.define do
     email {'test@example.com'}
     password {'password'}
     admin {'true'}
-  end  
+  end
 end

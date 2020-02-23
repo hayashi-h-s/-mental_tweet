@@ -1,16 +1,16 @@
 <div class="container">
   <h1>ツイート一覧</h1>
   <div>
-      <% @posts.each do |post| %>
-        <div class="card" style="width: 55rem;">
-          <div class="card-body">
-            <%= image_tag post.user.image,width: 50 if post.user.image.attached? %>
-            <h6 class="card-subtitle mb-2 text-muted"><%= link_to post.user.name,admin_user_path(post.user) %></h6>
-            <p class="card-text"><%= link_to post.content, post %></p>
-            <%= link_to "編集",edit_post_path(post)%>
-            <%= link_to "削除",post,method: :delete%>
-          </div>
-        </div>        
-      <% end %>
+    <% @posts.each do |post| %>
+      <div class="card" style="width: 55rem;">
+        <div class="card-body">
+          <%= image_tag post.user.image,width: 50 if post.user.image.attached? %>
+          <h6 class="card-subtitle mb-2 text-muted"><%= link_to post.user.name,admin_user_path(post.user) %></h6>
+          <p class="card-text"><%= link_to post.content, post %></p>
+          <%= link_to "編集",edit_post_path(post)%>
+          <%= link_to "削除",post,method: :delete%>
+        </div>
+      </div> 
+    <% end %>
   </div>
 </div>

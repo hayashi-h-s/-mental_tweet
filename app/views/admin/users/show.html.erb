@@ -9,6 +9,12 @@
     <%= link_to "プロフィール編集",edit_admin_user_path%>
   </div>
 </div>
+
+<ul class="user-tabs">
+  <li class="active"><%= link_to("投稿", admin_user_path) %></li>
+  <li><%= link_to("いいね!","#{@user.id}/likes") %></li>
+</ul>
+
 <h2>ツイート</h2>
   <div class="mb-3">
     <% @user.posts.each do |post| %>

@@ -7,17 +7,24 @@
       </div>
     <% end %>
 
+<!-- 10回繰り返して表示してみる -->
+
   <%= form_with model:@post,local:true do |f| %>
-    <div class="form-group">
       <%= f.label :投稿内容 %>
-      <%= f.text_area :content,class: 'form-control'%>
+      <%= f.text_area :content%>
+      <%= f.submit "投稿"%>
+  <% end %>
+</div>
+
+<% 
+=begin
+%>
       <%= f.label :画像 %>
       <%= f.file_field :image %>        
       <%= f.label :動画 %>
       <%= f.file_field :video %>
     </div>
-    <%= f.submit "投稿",class:"btn btn-primary"%>
-  <% end %>
-</div>
 
-
+<%
+=end
+%>

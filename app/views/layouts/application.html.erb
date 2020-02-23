@@ -10,7 +10,9 @@
   </head>
 
   <body>
-    <%= render 'layouts/header' %>  
+    <div class="sticky-top">
+      <%= render 'layouts/header' %>  
+    </div>
     <div class="container">
       <% if flash.notice.present? %>
         <div class="alert alert-success">

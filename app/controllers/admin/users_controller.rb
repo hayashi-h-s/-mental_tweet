@@ -43,6 +43,10 @@ class Admin::UsersController < ApplicationController
     redirect_to admin_users_path,notice: "ユーザー『#{@user.name}』を削除しました"
   end
 
+  def likes
+
+  end
+
   private
   def users_params
     params.require(:user).permit(:name,:email,:details,:admin,:password,:password_confirmation, :image)
